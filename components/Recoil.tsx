@@ -1,6 +1,10 @@
 "use client"
+import { ReactNode } from "react"
 import { RecoilRoot } from "recoil"
-export default function RecoilSetup({children} : any){
+type RecoilSetupProps = {
+    children: ReactNode;
+}
+export default function RecoilSetup({children}:RecoilSetupProps){
     return(
         <RecoilRoot>
             {children}

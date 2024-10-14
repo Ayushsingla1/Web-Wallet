@@ -1,5 +1,5 @@
 "use client";
-import { generateMnemonic, mnemonicToSeedSync } from "bip39";
+import { generateMnemonic } from "bip39";
 import { useRecoilState } from "recoil";
 import { Seeding, Wallets, Count } from "@/RecoilStore/store";
 import { useState } from "react";
@@ -13,7 +13,7 @@ export default function Home() {
   const [wallets, setWallets] = useRecoilState(Wallets);
   const [count, setCount] = useRecoilState(Count);
 
-  const clickHandler = (e: any) => {
+  const clickHandler = (e:  React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (generate) return;
     setGenerate(true);
@@ -21,7 +21,7 @@ export default function Home() {
     setSeed(mnemonic);
   };
 
-  const KeyHandler = (e: any) => {
+  const KeyHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setCount(count + 1);
     const path = `m/44'/501'/${count}'/0'`; 
